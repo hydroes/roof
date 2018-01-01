@@ -26,6 +26,7 @@ const style = `#components-layout-demo-side .logo {
 }`
 
 const store = configureStore()
+const action = type => store.dispatch({type})
 
 class App extends React.Component {
   state = {
@@ -38,44 +39,53 @@ class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Layout>
-          <Sider
-            breakpoint="lg"
-            collapsedWidth="0"
-            onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
-          >
-            <div className="logo" />
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-              <Menu.Item key="1">
-                <Icon type="user" />
-                <span className="nav-text">nav 1</span>
-              </Menu.Item>
-              <Menu.Item key="2">
-                <Icon type="video-camera" />
-                <span className="nav-text">nav 2</span>
-              </Menu.Item>
-              <Menu.Item key="3">
-                <Icon type="upload" />
-                <span className="nav-text">nav 3</span>
-              </Menu.Item>
-              <Menu.Item key="4">
-                <Icon type="user" />
-                <span className="nav-text">nav 4</span>
-              </Menu.Item>
-            </Menu>
-          </Sider>
+        <Router>
           <Layout>
-            <Header style={{ background: '#fff', padding: 0 }} />
-            <Content style={{ margin: '24px 16px 0' }}>
-              <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-                content
-              </div>
-            </Content>
-            <Footer style={{ textAlign: 'center' }}>
-              Ant Design ©2016 Created by Ant UED
-            </Footer>
+            <Sider
+              breakpoint="lg"
+              collapsedWidth="0"
+              onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
+            >
+              <div className="logo" />
+              <Menu theme="dark" mode="inline" defaultSelectedKeys={['3']}>
+
+                <Menu.Item key="1">
+                  <Link to="/">
+                    <Icon type="user" />
+                    <span className="nav-text">Home</span>
+                  </Link>
+                </Menu.Item>
+
+                <Menu.Item key="2">
+                  <Link to="/topics">
+                    <Icon type="video-camera" />
+                    <span className="nav-text">Topics</span>
+                  </Link>
+                </Menu.Item>
+
+                <Menu.Item key="3">
+                  <Link to="/about">
+                    <Icon type="user" />
+                    <span className="nav-text">About</span>
+                  </Link>
+                </Menu.Item>
+              </Menu>
+            </Sider>
+            <Layout>
+              <Header style={{ background: '#fff', padding: 0 }} />
+              <Content style={{ margin: '24px 16px 0' }}>
+                <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+                  <Route exact path="/" component={Home}/>
+                  <Route path="/about" component={About}/>
+                  <Route path="/topics" component={Topics}/>
+                </div>
+              </Content>
+              <Footer style={{ textAlign: 'center' }}>
+                Ant Design ©2016 Created by Ant UED
+              </Footer>
+            </Layout>
           </Layout>
-        </Layout>
+        </Router>
       </Provider>
     );
   }
