@@ -47,7 +47,7 @@ class App extends React.Component {
               onCollapse={(collapsed, type) => { console.log(collapsed, type); }}
             >
               <div className="logo" />
-              <Menu theme="dark" mode="inline" defaultSelectedKeys={['3']}>
+              <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
 
                 <Menu.Item key="1">
                   <Link to="/">
