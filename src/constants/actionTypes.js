@@ -1,1 +1,3 @@
 export const USERS_REQUEST = 'USERS_REQUEST'
+
+export const POSTS_REQUEST = 'POSTS_REQUEST'

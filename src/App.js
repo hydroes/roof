@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Provider } from 'react-redux';
-import configureStore from './store/configureStore'
+import configureStore from 'store/configureStore'
 
 import {
   BrowserRouter as Router,
@@ -11,9 +11,10 @@ import {
 
 import 'antd/dist/antd.css'
 
-import Home from './components/Home'
-import About from './components/About'
-import Topics from './components/Topics'
+import Home from 'components/Home'
+import About from 'components/About'
+import Topics from 'components/Topics'
+import Posts from 'containers/Posts'
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -69,6 +70,13 @@ class App extends React.Component {
                     <span className="nav-text">About</span>
                   </Link>
                 </Menu.Item>
+
+                <Menu.Item key="4">
+                  <Link to="/posts">
+                    <Icon type="user" />
+                    <span className="nav-text">Posts</span>
+                  </Link>
+                </Menu.Item>
               </Menu>
             </Sider>
             <Layout>
@@ -78,6 +86,7 @@ class App extends React.Component {
                   <Route exact path="/" component={Home}/>
                   <Route path="/about" component={About}/>
                   <Route path="/topics" component={Topics}/>
+                  <Route path="/posts" component={Posts}/>
                 </div>
               </Content>
               <Footer style={{ textAlign: 'center' }}>
@@ -92,21 +101,3 @@ class App extends React.Component {
 }
 
 export default App
-
-/*
-<Router>
-  <div>
-    <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/about">About</Link></li>
-      <li><Link to="/topics">Topics</Link></li>
-    </ul>
-
-    <hr/>
-
-    <Route exact path="/" component={Home}/>
-    <Route path="/about" component={About}/>
-    <Route path="/topics" component={Topics}/>
-  </div>
-</Router>
-*/
