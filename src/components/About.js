@@ -1,9 +1,8 @@
 import React from 'react'
 
-const About = ({getUsers, ...props}) => (
+const About = ({props}) => (
   <div>
     <h2>About</h2>
-    <p><button onClick={getUsers}>get users</button></p>
   </div>
 )
 
