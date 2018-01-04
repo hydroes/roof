@@ -27,7 +27,7 @@ const style = `#components-layout-demo-side .logo {
 }`
 
 const store = configureStore()
-const action = type => store.dispatch({type})
+
 
 class App extends React.Component {
   state = {

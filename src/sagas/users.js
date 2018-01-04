@@ -1,4 +1,4 @@
-export default function* userSaga() {
+export function* userSaga() {
   console.log('User saga')
   yield 'something'
 }

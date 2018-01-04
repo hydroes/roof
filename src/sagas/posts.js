@@ -11,5 +11,3 @@ function* getPostsSaga() {
 export function* watchPostsRequestSaga() {
   yield takeEvery('POSTS_REQUEST', getPostsSaga)
 }
-
-export default watchPostsRequestSaga
