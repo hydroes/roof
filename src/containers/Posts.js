@@ -8,15 +8,12 @@ const Posts = ({getPostsClick}) => {
 const mapDispatchToProps = (dispatch, props) => {
   return {
     getPostsClick: () => {
-      dispatch({type: 'POSTS_REQUEST'})
+      dispatch({
+        type: 'POSTS_REQUEST',
+        history: props.history
+      })
       console.log('getPostsClick props', props)
 
-      const location = {
-        pathname: '/about',
-        state: { fromDashboard: true }
-      }
-
-      props.history.push(location)
     }
   }
 }
